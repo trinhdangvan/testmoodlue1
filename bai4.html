@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
+
 <body>
+<canvas id="canvas" width="500" height="500" style="border: 1px solid"></canvas>
 <script>
-    let Circle = function(radius) {
-
-        this.radius = radius;
-
-    };
-    this.getRadius = function() {
-        return radius;
+    class Circle {
+        constructor(x, y, radius, color) {
+            this._x = x;
+            this._y = y;
+            this._radius = radius;
+            this._color = color;
+        }
+        get x() {
+            return this._x;
+        }
+        set x(value) {
+            this._x = value;
+        }
+        get y() {
+            return this._y;
+        }
+        set y(value) {
+            this._y = value;
+        }
+        get radius() {
+            return this._radius;
+        }
+        set radius(value) {
+            this._radius = value;
+        }
+        get color() {
+            return this._color;
+        }
+        set color(value) {
+            this._color = value;
+        }
+        render() {
+            let canvas = document.getElementById('canvas');
+            let ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.strokeStyle = this.color
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+            ctx.fill();
+            ctx.closePath();
+        }
     }
-    this.getArea = function() {
-        return Math.PI * radius * radius;
-    }
-    let circle = new Circle(2);
-    let radius = circle.getRadius(); // 2
-
-    let area = circle.getArea(); // 12.566370614359172
-    alert("radius: " + radius + "; area: " + area);
+    let circle1 = new Circle(10, 10, 100, "#000000");
+    circle1.render();
 </script>
+
 </body>
 </html>
