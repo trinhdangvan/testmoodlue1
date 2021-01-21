@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = +prompt("nhap vao so nguyen ")
+    function isFibonacci(arr) {
+        let a = (5 * Math.pow(arr, 2)) + 4;
+        let b = (5 * Math.pow(arr, 2)) - 4;
+        if (Math.sqrt(a) % 1 === 0 || Math.sqrt(b) % 1 === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    document.write(isFibonacci(arr));
+</script>
+</body>
+</html>
